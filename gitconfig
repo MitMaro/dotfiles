@@ -1,0 +1,84 @@
+[include]
+	path = ~/.gitconfig_local
+
+[advice]
+	statusHints = false
+
+[alias]
+	git = !git
+
+	ci = commit
+	drop = stash drop
+	fixup = commit --amend -C HEAD
+	# force checkout branch
+	go = !"f() { git rev-parse --verify --quiet "$1" > /dev/null && git checkout "$1"}; f"
+	peek = show --name-only
+	pop = stash pop
+	pretty = log --graph --pretty=oneline
+	st = status --short --branch
+	undo = reset --soft HEAD^
+	w = whatchanged
+
+[core]
+	pager = less -FRSX
+	whitespace=trailing-space,cr-at-eol,tabwidth=4
+	excludesfile = ~/.global_gitignore
+
+	# enable parallel I/O for operations like "git diff"
+	# see http://stackoverflow.com/q/18257622/276478
+	preloadindex = true
+
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+	interactive = auto
+	ui = true
+	pager = true
+
+[color.branch]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color.diff]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+	
+[color.status]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[diff]
+	# use path prefix that makes sense in diff (replace a,b -> i,w for example)
+	mnemonicprefix = true
+
+[fetch]
+	# auto prune on fetch
+	prune = true
+
+[merge]
+	# show diff after merge
+	stat = true
+
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+
+[pull]
+	rebase = true
+
+[push]
+	# Make "git push" or "git push <remote>" do nothing
+	default = nothing
+
+[rerere]
+	enabled = true
+
+[user]
+	useConfigOnly = true

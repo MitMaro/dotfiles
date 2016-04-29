@@ -1,0 +1,47 @@
+#  My personal .profile
+#  By: Tim Oram
+
+# redefine history search (ie. up/down keyboard action)
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\C-b": backward-word
+"\C-f": forward-word
+
+# try to stay at the same the cursor position when moving through the history
+set history-preserve-point on
+
+# show tab completions sooner
+set show-all-if-ambiguous on
+
+# when completing directory symlinks, add a trailing slash
+set mark-symlinked-directories on
+
+# ignore case in tab completions
+set completion-ignore-case on
+
+# do not complete hidden files unless explicit
+set match-hidden-files off
+
+# show extra file information when completing
+set visible-stats on
+
+# autocomplete on text after cursor (bash >= 4)
+set skip-completed-text on
+
+# expand the ~ to the full path
+set expand-tilde on
+
+# allow utf8 input and output
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# use ctrl+← and ctrl+→ to move between words.
+"\e[1;5D": backward-word
+"\e[1;3D": backward-word
+"\e[5D": backward-word
+"\e\e[D": backward-word
+"\e[1;5C": forward-word
+"\e[1;3C": forward-word
+"\e[5C": forward-word
+"\e\e[C": forward-word
