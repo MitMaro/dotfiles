@@ -2,7 +2,13 @@ export __DOTS_FIRST_RUN=0
 
 ___prompt_setup() {
 	local EXITSTATUS="$?" prompt_end user_color prompt_color prompt_symbol run_time
-	run_time=$(( $(date +"%s%3N") - $__DOTS_COMMAND_START_TIME ))
+	run_time=$(( $(date +"%s%3N") - $__DOTS_COMMAND_START_SECONDS ))
+	command_date_time="$(date +'%H:%M:%S')"
+
+	# only add end time if it is different than start
+	if [[ "$command_date_time" != "$__DOTS_COMMAND_START_TIME" ]]; then
+		command_date_time="$__DOTS_COMMAND_START_TIME ↝ $command_date_time"
+	fi
 
 	if [[ ${run_time} -lt 1000 ]]; then
 		run_time="${run_time} ms"
@@ -30,10 +36,10 @@ ___prompt_setup() {
 	if [[ ${__DOTS_FIRST_RUN} -eq 0 ]]; then
 		export __DOTS_FIRST_RUN=1
 	else
-		prompt_end="\[$prompt_color\]└─┨$prompt_symbol\[$prompt_color\]┃ \[$COLOR_DARK_MAGENTA\]$run_time\[$prompt_color\]\n\n"
+		prompt_end="\[$prompt_color\]╰─┨$prompt_symbol\[$prompt_color\]┃ \[$COLOR_DARK_MAGENTA\]$run_time\[$prompt_color\] 🕒  $COLOR_BROWN$command_date_time$COLOR_NORMAL \n\n"
 	fi
 
-	PS1="${prompt_end}\[$prompt_color\]┌ \$(___check_jobs)\$(___check_git)\$(___node_version)\[$user_color\]\u \[$prompt_color\]\
+	PS1="${prompt_end}\[$prompt_color\]╭ \$(___check_jobs)\$(___check_git)\$(___node_version)\[$user_color\]\u \[$prompt_color\]\
 \w (\$(ls -1 | wc -l | sed 's: ::g') files)\$(___check_git_branch_info)\
 \[$prompt_color\] \[$prompt_color\]\n\
 ├▪ \[$COLOR_NORMAL\]"

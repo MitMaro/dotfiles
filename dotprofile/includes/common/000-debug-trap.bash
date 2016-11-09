@@ -9,5 +9,6 @@ __dots_debug_trap() {
 	fi
 	export __DOTS_IN_COMMAND=1
 	
-	export __DOTS_COMMAND_START_TIME=$(date +'%s%3N')
+	export __DOTS_COMMAND_START_SECONDS=$(date +'%s%3N')
+	export __DOTS_COMMAND_START_TIME=$(date +'%H:%M:%S')
 }
