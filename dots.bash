@@ -3,6 +3,9 @@ dots - A dot files manager
 By: Tim Oram
 '
 
+# check for Bash and interactive shell
+([ -z $BASH ] || [[ ! "$-" =~ .*i.* ]]) && return;
+
 # reset a few things
 export PROMPT_COMMAND=""
 export PATH=$(getconf PATH);
