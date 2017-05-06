@@ -10,7 +10,7 @@ By: Tim Oram
 export PROMPT_COMMAND=""
 export PATH=$(getconf PATH);
 
-export __DOTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export __DOTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 [[ -e "${__DOTS_DIR}/config.bash" ]] && source "${__DOTS_DIR}/config.bash"
 source "${__DOTS_DIR}/dotprofile/lib/debug-log.bash"
@@ -38,13 +38,13 @@ __load_dots_directories() {
 
 __load_dots_files() {
 	local subdirectory="$1"
-	if [ ! -d "${__DOTS_DIR}/${subdirectory}" ]; then
+	if [[ ! -d "${__DOTS_DIR}/${subdirectory}" ]]; then
 		__DEBUG_MESSAGE "Skipping: ${__DOTS_DIR}/${subdirectory}, does not exist"
 		return
 	fi
 	local FILES="${__DOTS_DIR}/${subdirectory}/*.bash"
 	for config_file in ${FILES}; do
-		if [ -e "${config_file}" ]; then
+		if [[ -e "${config_file}" ]]; then
 			__DEBUG_MESSAGE "Sourcing: ${config_file}"
 			source "${config_file}"
 		fi

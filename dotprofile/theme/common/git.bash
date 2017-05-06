@@ -11,10 +11,9 @@ function ___check_git_branch_info() {
 
 	git rev-parse --is-inside-work-tree > /dev/null 2>&1 || return 1
 
-	tmp=$(git status --porcelain --branch | sed 's/.*\[\(.*\)\]/\1/')
-	ahead=$(echo ${tmp} | grep "ahead" | sed 's/.*ahead \([0-9]*\).*/\1/')
-	behind=$(echo ${tmp} | grep "behind" | sed 's/.*behind \([0-9]*\).*/\1/')
-	
+	tmp="$(git status --porcelain --branch | head -1 | sed 's/.*\[\(.*\)\]/\1/')"
+	ahead="$(echo ${tmp} | grep "ahead" | sed 's/.*ahead \([0-9]*\).*/\1/')"
+	behind="$(echo ${tmp} | grep "behind" | sed 's/.*behind \([0-9]*\).*/\1/')"
 	if [ ! -z "${ahead}" ] || [ ! -z "${behind}" ]; then
 		branch_status=" ${COLOR_LIGHT_GREY}["
 		if [ ! -z "${ahead}" ]; then
