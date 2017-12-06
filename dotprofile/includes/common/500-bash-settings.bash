@@ -10,7 +10,7 @@ shopt -s histappend # append to end of history file, don't overwrite
 HISTCONTROL=ignoredups:ignorespace # ignore duplicate commands and space prepended commands
 HISTFILESIZE=100000 # keep this many previous commands
 HISTSIZE=100000 # similar to HISTFILESIZE
-HISTIGNORE="ls,history*,exit" # ignore these commands
+HISTIGNORE="ls:history*:exit:git st" # ignore these commands
 
 # enable unicode if possible
 avail_locales=`locale -a`
@@ -21,4 +21,4 @@ for locale in "${locale_order[@]}"; do
 		export LC_CTYPE=${locale}
 		break;
 	fi
-done;
+done
