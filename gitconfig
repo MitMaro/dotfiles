@@ -26,6 +26,8 @@
 	# enable parallel I/O for operations like "git diff"
 	# see http://stackoverflow.com/q/18257622/276478
 	preloadindex = true
+	editor = vim
+	hooksPath = /Users/timoram/.git-hooks/
 
 [color]
 	branch = auto
@@ -51,6 +53,9 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+
+[branch]
+	autosetuprebase = always
 
 [diff]
 	# use path prefix that makes sense in diff (replace a,b -> i,w for example)
@@ -81,3 +86,7 @@
 
 [user]
 	useConfigOnly = true
+[credential]
+	helper = --get
+[sequence]
+	editor = OSX-git-interactive-tool
