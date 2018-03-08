@@ -26,6 +26,7 @@
 	# enable parallel I/O for operations like "git diff"
 	# see http://stackoverflow.com/q/18257622/276478
 	preloadindex = true
+	hooksPath = ~/.git-hooks/
 
 [color]
 	branch = auto
@@ -52,6 +53,10 @@
 	changed = green
 	untracked = cyan
 
+[branch]
+	autosetupmerge = always
+	autosetuprebase = always
+
 [diff]
 	# use path prefix that makes sense in diff (replace a,b -> i,w for example)
 	mnemonicprefix = true
@@ -64,10 +69,11 @@
 	# show diff after merge
 	stat = true
 
-[pager]
-	log = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
+## TODO use https://github.com/so-fancy/diff-so-fancy
+# [pager]
+#	log = diff-highlight | less
+#	show = diff-highlight | less
+#	diff = diff-highlight | less
 
 [pull]
 	rebase = true
