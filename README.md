@@ -17,10 +17,12 @@ code, and remove things you don’t want or need. Don’t blindly use my setting
 
 **Warning**
 
----
+----
+
 You may see warnings such as: "existing target is neither a link nor a directory: .bashrc". In those cases you will
 need to manually delete those files first.
----
+
+----
 
 1. Install [GNU Stow][stow]
 1. Clone the repo to a stable location
