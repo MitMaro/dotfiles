@@ -19,7 +19,10 @@ if ( ${__DOTS_STOW_DRY_RUN} ); then
 	stow_args="$stow_args --simulate"
 fi
 
+mkdir -p "$__DOTS_DIR/bin/.bin/"
+
 ln -sfn "$__DOTS_DIR/dependencies/diff-so-fancy/diff-so-fancy" "$__DOTS_DIR/bin/.bin/diff-so-fancy"
+ln -sfn "$__DOTS_DIR/dependencies/ide-sync/ide-sync.sh" "$__DOTS_DIR/bin/.bin/ide-sync"
 
 stow ${stow_args} bin
 stow ${stow_args} shell

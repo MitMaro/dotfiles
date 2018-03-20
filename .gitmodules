@@ -1,3 +1,6 @@
 [submodule "dependencies/diff-so-fancy"]
 	path = dependencies/diff-so-fancy
 	url = https://github.com/so-fancy/diff-so-fancy
+[submodule "dependencies/ide-sync"]
+	path = dependencies/ide-sync
+	url = https://github.com/MitMaro/ide-sync.git

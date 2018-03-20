@@ -1,5 +1,5 @@
 # ignored generated symlinks
-bin/.bin/diff-so-fancy
+bin/.bin/*
 
 shell/.bash_profile
 config.bash
