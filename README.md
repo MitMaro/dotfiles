@@ -27,12 +27,17 @@ need to manually delete those files first.
 1. Install [GNU Stow][stow]
 1. Clone the repo to a stable location
 1. `cd <cloned-directory>`
-1. `./install.bash`
+1. `./scripts/install.bash`
 
 ## Update
 
 1. `git pull` to get newest changes
-1. `./install.bash` to link any new files
+1. `./scripts/install.bash` to link any new files
+
+## Uninstall
+
+1. `cd <cloned-directory>`
+1. `./scripts/uninstall.bash`
 
 ## Inspiration
 
