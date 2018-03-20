@@ -1,3 +1,6 @@
+# ignored generated symlinks
+bin/.bin/diff-so-fancy
+
 shell/.bash_profile
 config.bash
 local

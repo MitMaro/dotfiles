@@ -19,7 +19,7 @@
 	w = whatchanged
 
 [core]
-	pager = less -FRSX
+	pager = diff-so-fancy | less --tabs=4 -RFX
 	whitespace=trailing-space,cr-at-eol,tabwidth=4
 	excludesfile = ~/.global_gitignore
 
@@ -27,6 +27,7 @@
 	# see http://stackoverflow.com/q/18257622/276478
 	preloadindex = true
 	hooksPath = ~/.git-hooks/
+	editor = vim
 
 [color]
 	branch = auto
@@ -68,12 +69,6 @@
 [merge]
 	# show diff after merge
 	stat = true
-
-## TODO use https://github.com/so-fancy/diff-so-fancy
-# [pager]
-#	log = diff-highlight | less
-#	show = diff-highlight | less
-#	diff = diff-highlight | less
 
 [pull]
 	rebase = true

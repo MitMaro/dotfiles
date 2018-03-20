@@ -6,6 +6,9 @@ By: Tim Oram
 # check for Bash and interactive shell
 ([ -z $BASH ] || [[ ! "$-" =~ .*i.* ]]) && return;
 
+# remove all existing aliases
+unalias -a
+
 # reset a few things
 export PROMPT_COMMAND=""
 export PATH=$(getconf PATH);
