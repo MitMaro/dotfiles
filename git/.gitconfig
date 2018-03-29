@@ -82,3 +82,6 @@
 
 [user]
 	useConfigOnly = true
+
+[sequence]
+	editor = interactive-rebase-tool
