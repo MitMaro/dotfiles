@@ -1,6 +1,7 @@
 # ignored generated symlinks
-bin/.bin/*
-config/.config/terminator/plugins/*
+bin/.bin/
+config/.config/terminator/plugins/
+config/.local/share/gnome-shell/extensions/
 
 shell/.bash_profile
 config.bash
