@@ -14,8 +14,10 @@ if ( ${__DOTS_STOW_DRY_RUN} ); then
 	stow_args="$stow_args --simulate"
 fi
 
-stow ${stow_args} shell
+stow ${stow_args} config
+stow ${stow_args} bin
 stow ${stow_args} git
+stow ${stow_args} shell
 
 # just make sure this file exists
 touch "$HOME/.gitconfig_local"

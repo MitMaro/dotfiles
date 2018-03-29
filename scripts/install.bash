@@ -19,14 +19,20 @@ if ( ${__DOTS_STOW_DRY_RUN} ); then
 	stow_args="$stow_args --simulate"
 fi
 
-mkdir -p "$__DOTS_DIR/bin/.bin/"
+# create directories that will contain symlinks
+mkdir -p "$__DOTS_DIR/config/.config/terminator/plugins"
 
+# create directories in HOME that should be directories and not symlinks
+mkdir -p "$HOME/.dropbox/"
+
+ln -sfn "$__DOTS_DIR/dependencies/terminator-editor-plugin/editor_plugin.py" "$__DOTS_DIR/config/.config/terminator/plugins/editor_plugin.py"
 ln -sfn "$__DOTS_DIR/dependencies/diff-so-fancy/diff-so-fancy" "$__DOTS_DIR/bin/.bin/diff-so-fancy"
 ln -sfn "$__DOTS_DIR/dependencies/ide-sync/ide-sync.sh" "$__DOTS_DIR/bin/.bin/ide-sync"
 
+stow ${stow_args} config
 stow ${stow_args} bin
-stow ${stow_args} shell
 stow ${stow_args} git
+stow ${stow_args} shell
 
 # just make sure this file exists
 touch "$HOME/.gitconfig_local"

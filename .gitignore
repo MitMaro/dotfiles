@@ -1,5 +1,6 @@
 # ignored generated symlinks
 bin/.bin/*
+config/.config/terminator/plugins/*
 
 shell/.bash_profile
 config.bash
