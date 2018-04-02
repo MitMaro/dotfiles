@@ -10,3 +10,6 @@
 [submodule "dependencies/gnome-shell-audio-output-switcher"]
 	path = dependencies/gnome-shell-audio-output-switcher
 	url = git@github.com:kgaut/gnome-shell-audio-output-switcher.git
+[submodule "dependencies/multi-monitors-add-on"]
+	path = dependencies/multi-monitors-add-on
+	url = git://github.com/spin83/multi-monitors-add-on.git

@@ -28,6 +28,7 @@ mkdir -p "$HOME/.dropbox/"
 
 ln -sfn "$__DOTS_DIR/dependencies/diff-so-fancy/diff-so-fancy" "$__DOTS_DIR/bin/.bin/diff-so-fancy"
 ln -sfn "$__DOTS_DIR/dependencies/gnome-shell-audio-output-switcher" "$__DOTS_DIR/config/.local/share/gnome-shell/extensions/gnome-shell-audio-output-switcher@kgaut"
+ln -sfn "$__DOTS_DIR/dependencies/multi-monitors-add-on/multi-monitors-add-on@spin83" "$__DOTS_DIR/config/.local/share/gnome-shell/extensions/multi-monitors-add-on@spin83"
 ln -sfn "$__DOTS_DIR/dependencies/ide-sync/ide-sync.sh" "$__DOTS_DIR/bin/.bin/ide-sync"
 ln -sfn "$__DOTS_DIR/dependencies/terminator-editor-plugin/editor_plugin.py" "$__DOTS_DIR/config/.config/terminator/plugins/editor_plugin.py"
 
@@ -38,5 +39,7 @@ stow ${stow_args} shell
 
 # just make sure this file exists
 touch "$HOME/.gitconfig_local"
+
+./scripts/gnome-settings.bash
 
 echo "Install complete"
