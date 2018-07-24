@@ -49,4 +49,4 @@ ___prompt_setup() {
 	export __DOTS_IN_COMMAND=0
 }
 
-PROMPT_COMMAND="${PROMPT_COMMAND}___prompt_setup;"
+PROMPT_COMMAND="${PROMPT_COMMAND};___prompt_setup;"
