@@ -11,7 +11,7 @@ unalias -a
 
 # reset a few things
 export PROMPT_COMMAND=""
-export PATH=$(getconf PATH);
+export PATH="$(getconf PATH)"
 
 export __DOTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 

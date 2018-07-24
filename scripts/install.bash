@@ -24,9 +24,6 @@ rm -rf "$__DOTS_DIR/config/"
 mkdir -p "$__DOTS_DIR/config/.config/terminator/plugins"
 mkdir -p "$__DOTS_DIR/config/.local/share/gnome-shell/extensions/"
 
-# create directories in HOME that should be directories and not symlinks
-mkdir -p "$HOME/.dropbox/"
-
 ln -sfn "$__DOTS_DIR/dependencies/diff-so-fancy/diff-so-fancy" "$__DOTS_DIR/bin/.bin/diff-so-fancy"
 ln -sfn "$__DOTS_DIR/dependencies/gnome-shell-audio-output-switcher" "$__DOTS_DIR/config/.local/share/gnome-shell/extensions/gnome-shell-audio-output-switcher@kgaut"
 ln -sfn "$__DOTS_DIR/dependencies/multi-monitors-add-on/multi-monitors-add-on@spin83" "$__DOTS_DIR/config/.local/share/gnome-shell/extensions/multi-monitors-add-on@spin83"
