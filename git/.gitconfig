@@ -17,6 +17,7 @@
 	st = status --short --branch
 	undo = reset --soft HEAD^
 	w = whatchanged
+	wip = git commit --no-verify -m "WIP"
 
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
