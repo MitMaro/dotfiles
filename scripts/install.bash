@@ -37,6 +37,6 @@ stow ${stow_args} shell
 # just make sure this file exists
 touch "$HOME/.gitconfig_local"
 
-./scripts/gnome-settings.bash
+"$__DOTS_DIR/scripts/load-gsettings.py" "$__DOTS_DIR/settings/gsettings.json"
 
 echo "Install complete"

@@ -1,0 +1,33 @@
+{
+	"com.gexperts.Tilix.Settings": {
+		"theme-variant": {"operation": "set", "value": "dark"},
+		"terminal-title-style": {"operation": "set", "value": "small"},
+		"new-window-inherit-state": {"operation": "set", "value": true}
+	},
+	"com.gexperts.Tilix.ProfilesList": {
+		"list": {"operation": "set", "value": ["2b7c4080-0ddd-46c5-8f23-563fd3ba789d"]}
+	},
+	"com.gexperts.Tilix.Profile:/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/": {
+		"visible-name": {"operation": "set", "value": "Tim's Profile"}
+	},
+	"org.gnome.shell": {
+		"enabled-extensions": [
+			{"operation": "add", "value": "multi-monitors-add-on@spin83"},
+			{"operation": "add", "value": "gnome-shell-audio-output-switcher@kgaut"},
+			{"operation": "add", "value": "system76-power@system76.com"}
+		]
+	},
+	"org.gnome.desktop.calendar": {
+		"show-weekdate": {"operation": "set", "value": true}
+	},
+	"org.gnome.desktop.interface": {
+		"clock-show-seconds": {"operation": "set", "value": true}
+	},
+	"org.gnome.mutter": {
+		"workspaces-only-on-primary": {"operation": "set", "value": false}
+	},
+	"org.gnome.shell.extensions.multi-monitors-add-on": {
+		".schemadir": "~/.local/share/gnome-shell/extensions/multi-monitors-add-on@spin83/schemas/",
+		"show-thumbnails-slider": {"operation": "set", "value": true}
+	}
+}

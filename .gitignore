@@ -5,4 +5,4 @@ config/.local/share/gnome-shell/extensions/
 
 shell/.bash_profile
 config.bash
-local
+venv/
