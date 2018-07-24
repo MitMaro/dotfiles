@@ -4,9 +4,6 @@
 [submodule "dependencies/ide-sync"]
 	path = dependencies/ide-sync
 	url = https://github.com/MitMaro/ide-sync.git
-[submodule "dependencies/terminator-editor-plugin"]
-	path = dependencies/terminator-editor-plugin
-	url = https://github.com/mchelem/terminator-editor-plugin.git
 [submodule "dependencies/gnome-shell-audio-output-switcher"]
 	path = dependencies/gnome-shell-audio-output-switcher
 	url = git@github.com:kgaut/gnome-shell-audio-output-switcher.git
