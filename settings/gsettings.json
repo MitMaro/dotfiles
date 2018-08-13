@@ -26,7 +26,8 @@
 		"show-battery-percentage": {"operation": "set", "value": true}
 	},
 	"org.gnome.mutter": {
-		"workspaces-only-on-primary": {"operation": "set", "value": false}
+		"workspaces-only-on-primary": {"operation": "set", "value": false},
+		"attach-modal-dialogs": {"operation": "set", "value": true}
 	},
 	"org.gnome.shell.extensions.multi-monitors-add-on": {
 		".schemadir": "~/.local/share/gnome-shell/extensions/multi-monitors-add-on@spin83/schemas/",
