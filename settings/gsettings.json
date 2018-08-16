@@ -8,7 +8,8 @@
 		"list": {"operation": "set", "value": ["2b7c4080-0ddd-46c5-8f23-563fd3ba789d"]}
 	},
 	"com.gexperts.Tilix.Profile:/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/": {
-		"visible-name": {"operation": "set", "value": "Tim's Profile"}
+		"visible-name": {"operation": "set", "value": "Tim's Profile"},
+		"font": {"operation": "set", "value": "Iosevka Term Light 10"}
 	},
 	"org.gnome.shell": {
 		"enabled-extensions": [
