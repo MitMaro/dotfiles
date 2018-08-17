@@ -36,11 +36,23 @@ def format_value(value):
 	if isinstance(value, bool):
 		return 'true' if value else 'false'
 	if isinstance(value, list):
-		return '[' + ', '.join([format_value(v) for v in value]) + ']'
+		print(value)
+		return '[' + ', '.join([str(format_value(v)) for v in value]) + ']'
 	return value
 
 def set_value(schema, key, action):
 	read_cache[schema + '.' + key] = action['value']
+
+def clear_value(schema, key, action):
+	value = read_setting(schema, key, action['schemadir'])
+	if isinstance(value, bool):
+		print('Invalid clear operation on boolean:', key)
+	elif isinstance(value, str):
+		read_cache[schema + '.' + key] = ""
+	elif isinstance(value, list):
+		read_cache[schema + '.' + key] = []
+	else:
+		print('Invalid clear operation on unknown type:', key)
 
 def write_setting(schema, key, schemadir):
 	cache_key = schema + '.' + key
@@ -89,6 +101,8 @@ for schema in settings:
 				add_value(schema, key, action)
 			elif action['operation'] == 'remove':
 				remove_value(schema, key, action)
+			elif action['operation'] == 'clear':
+				clear_value(schema, key, action)
 			else:
 				print('Invalid operation:', action['operation'])
 				continue
