@@ -34,6 +34,9 @@
 		".schemadir": "~/.local/share/gnome-shell/extensions/multi-monitors-add-on@spin83/schemas/",
 		"show-thumbnails-slider": {"operation": "set", "value": true}
 	},
+	"org.gnome.gnome-system-monitor": {
+		"show-whose-processes": {"operation": "set", "value": "all"}
+	},
 	"org.gnome.gnome-system-monitor.proctree": {
 		"columns-order": [
 			{"operation": "clear"},
