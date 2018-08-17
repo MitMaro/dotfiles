@@ -1,0 +1,14 @@
+root = true
+
+[*]
+indent_style = tab
+end_of_line = lf
+insert_final_newline = true
+
+[*.md]
+indent_style = space
+indent_size = 4
+
+[{*.yaml,*.yml}]
+indent_style = space
+indent_size = 4
