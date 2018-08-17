@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 if ! command -v "stow" > /dev/null; then
 	>&2 echo "Command stow not found, aborting"
 	exit 1
