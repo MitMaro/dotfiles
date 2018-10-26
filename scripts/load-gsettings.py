@@ -5,6 +5,13 @@ import sys
 from subprocess import check_output
 from os.path import expanduser
 
+def is_number(s):
+    try:
+        int(s)
+        return True
+    except ValueError:
+        return False
+
 with open(sys.argv[1]) as f:
 	settings = json.load(f)
 
@@ -28,6 +35,8 @@ def read_value(value):
 		return [read_value(v) for v in value[1:-1].split(', ')]
 	elif value.startswith("'"):
 		return value[1:-1].replace("\\'", "'")
+	elif is_number(value):
+		return int(value)
 	return value
 
 def format_value(value):
@@ -35,8 +44,9 @@ def format_value(value):
 		return "'" + value.replace("'", "\\'") + "'"
 	if isinstance(value, bool):
 		return 'true' if value else 'false'
+	if isinstance(value, int):
+		return str(value)
 	if isinstance(value, list):
-		print(value)
 		return '[' + ', '.join([str(format_value(v)) for v in value]) + ']'
 	return value
 
