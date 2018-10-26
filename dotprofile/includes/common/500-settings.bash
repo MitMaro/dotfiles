@@ -10,7 +10,8 @@ shopt -s histappend # append to end of history file, don't overwrite
 HISTCONTROL=ignoredups:ignorespace # ignore duplicate commands and space prepended commands
 HISTFILESIZE=100000 # keep this many previous commands
 HISTSIZE=100000 # similar to HISTFILESIZE
-HISTIGNORE="ls:history*:exit:git st" # ignore these commands
+HISTIGNORE="ls:ls -la:history*:exit:git st" # ignore these commands
+PROIMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # enable unicode if possible
 avail_locales=`locale -a`

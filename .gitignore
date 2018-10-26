@@ -4,5 +4,6 @@ config/.config/terminator/plugins/
 config/.local/share/git/
 config/.local/share/gnome-shell/extensions/
 shell/.bash_profile
-config.bash
+shell/.zshrc
+config.sh
 venv/

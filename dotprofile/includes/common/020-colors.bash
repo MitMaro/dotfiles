@@ -1,5 +1,5 @@
 # only enable colors when supported
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+if [ -x /usr/bin/tput ] && tput setaf 1 >& /dev/null; then
 	# Color Constants
 	COLOR_NORMAL="\033[0m"
 	COLOR_BOLD="\033[1m"

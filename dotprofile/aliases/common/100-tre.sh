@@ -3,6 +3,11 @@
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
 # Credit: mathiasbynens
-function tre() {
+
+function __dots_function_tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+if type tree &> /dev/null; then
+	alias tre="__dots_function_tre"
+fi
