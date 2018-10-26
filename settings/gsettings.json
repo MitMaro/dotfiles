@@ -8,8 +8,35 @@
 		"list": {"operation": "set", "value": ["2b7c4080-0ddd-46c5-8f23-563fd3ba789d"]}
 	},
 	"com.gexperts.Tilix.Profile:/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/": {
-		"visible-name": {"operation": "set", "value": "Tim's Profile"},
-		"font": {"operation": "set", "value": "Iosevka Term Light 10"}
+		"allow-bold": {"operation": "set", "value": true},
+		"background-color": {"operation": "set", "value": "#101010101010"},
+		"cursor-shape": {"operation": "set", "value": "underline"},
+		"dim-transparency-percent": {"operation": "set", "value": 20},
+		"font": {"operation": "set", "value": "DejaVuSansMono Nerd Font Mono 10"},
+		"palette": [
+			{"operation": "clear"},
+			{"operation": "add", "value": "#2E2E34343636"},
+			{"operation": "add", "value": "#A4A400000000"},
+			{"operation": "add", "value": "#35356D6D0000"},
+			{"operation": "add", "value": "#CECE5C5C0000"},
+			{"operation": "add", "value": "#1E1E3D3D6A6A"},
+			{"operation": "add", "value": "#5C5C35356666"},
+			{"operation": "add", "value": "#000097979797"},
+			{"operation": "add", "value": "#D3D3D7D7CFCF"},
+			{"operation": "add", "value": "#88888A8A8585"},
+			{"operation": "add", "value": "#EFEF29292929"},
+			{"operation": "add", "value": "#6464D1D10000"},
+			{"operation": "add", "value": "#FCFCAFAF3E3E"},
+			{"operation": "add", "value": "#2A2A6161AFAF"},
+			{"operation": "add", "value": "#ADAD7F7FA8A8"},
+			{"operation": "add", "value": "#0000DEDEDEDE"},
+			{"operation": "add", "value": "#EEEEEEEEECEC"}
+		],
+		"scroll-on-keystroke": {"operation": "set", "value": true},
+		"scroll-on-output": {"operation": "set", "value": false},
+		"scrollback-unlimited": {"operation": "set", "value": true},
+		"show-scrollbar": {"operation": "set", "value": true},
+		"visible-name": {"operation": "set", "value": "Tim's Profile"}
 	},
 	"org.gnome.shell": {
 		"enabled-extensions": [
