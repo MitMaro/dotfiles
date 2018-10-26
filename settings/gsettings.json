@@ -42,7 +42,8 @@
 		"enabled-extensions": [
 			{"operation": "add", "value": "multi-monitors-add-on@spin83"},
 			{"operation": "add", "value": "gnome-shell-audio-output-switcher@kgaut"},
-			{"operation": "add", "value": "system76-power@system76.com"}
+			{"operation": "add", "value": "system76-power@system76.com"},
+			{"operation": "add", "value": "ubuntu-appindicators@ubuntu.com"}
 		]
 	},
 	"org.gnome.desktop.calendar": {
