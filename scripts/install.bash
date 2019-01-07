@@ -49,4 +49,10 @@ touch "$HOME/.gitconfig_local"
 
 "$__DOTS_DIR/scripts/load-gsettings.py" "$__DOTS_DIR/settings/gsettings.json"
 
+if [[ "$SHELL" != "/bin/zsh" ]]; then
+	echo "Updating shell to zsh"
+	chsh -s "/bin/zsh"
+	echo "You will need to logout and login again for the change to take effect"
+fi
+
 echo "Install complete"
