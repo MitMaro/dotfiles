@@ -330,7 +330,7 @@ ___prompt-build() {
 			fi
 		fi
 		if [[ "$name" == "newline" ]]; then
-			printf %"s\n"
+			printf $'\n'
 		fi
 		print -n -P "$reset_color"
 		print -n "$out"
@@ -376,6 +376,9 @@ ___prompt_order=(
 	"newline"
 )
 RPROMPT=
+
+# don't print a trailing character on output that does not end in a newline
+PROMPT_EOL_MARK=
 
 precmd_functions+=(___prompt-setup)
 
