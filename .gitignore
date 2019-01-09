@@ -1,9 +1,7 @@
 # ignored generated symlinks
-bin/.bin/
-config/.config/terminator/plugins/
-config/.local/share/git/
-config/.local/share/gnome-shell/extensions/
-shell/.bash_profile
-shell/.zshrc
-config.sh
-venv/
+/bin/.bin/
+/build/
+/shell/.bash_profile
+/shell/.zshrc
+/config.sh
+/venv/
