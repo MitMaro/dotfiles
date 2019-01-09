@@ -31,6 +31,7 @@ rm -rf "$__DOTS_DIR/config/"
 mkdir -p "$__DOTS_DIR/config/.config/terminator/plugins"
 mkdir -p "$__DOTS_DIR/config/.local/share/gnome-shell/extensions/"
 mkdir -p "$__DOTS_DIR/config/.local/share/git/"
+mkdir -p "$__DOTS_DIR/bin/.bin/"
 
 ln -sfn "$__DOTS_DIR/dependencies/diff-so-fancy/diff-so-fancy" "$__DOTS_DIR/bin/.bin/diff-so-fancy"
 ln -sfn "$__DOTS_DIR/dependencies/gnome-shell-audio-output-switcher" "$__DOTS_DIR/config/.local/share/gnome-shell/extensions/gnome-shell-audio-output-switcher@kgaut"
