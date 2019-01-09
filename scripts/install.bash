@@ -48,6 +48,7 @@ stow ${stow_args} shell
 # just make sure this file exists
 touch "$HOME/.gitconfig_local"
 
+echo "Loading gsettings"
 "$__DOTS_DIR/scripts/load-gsettings.py" "$__DOTS_DIR/settings/gsettings.json"
 
 if [[ "$SHELL" != "/bin/zsh" ]]; then

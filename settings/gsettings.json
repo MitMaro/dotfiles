@@ -36,6 +36,7 @@
 		"scroll-on-output": {"operation": "set", "value": false},
 		"scrollback-unlimited": {"operation": "set", "value": true},
 		"show-scrollbar": {"operation": "set", "value": true},
+		"use-system-font": {"operation": "set", "value": false},
 		"visible-name": {"operation": "set", "value": "Tim's Profile"}
 	},
 	"org.gnome.shell": {
