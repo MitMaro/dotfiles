@@ -83,7 +83,6 @@ ___prompt-jobs() {
 	if [[ "$job_count" == "0" ]]; then
 		return
 	fi
-	job_count=10
 
 	print -n -P "%F{$___prompt_jobs_fg}%K{$___prompt_jobs_bg}"
 	print -n "$job_count"
