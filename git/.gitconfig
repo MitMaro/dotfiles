@@ -20,7 +20,7 @@
 	wip = commit --no-verify -m "WIP"
 
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
 	whitespace=trailing-space,cr-at-eol,tabwidth=4
 	excludesfile = ~/.global_gitignore
 
@@ -44,11 +44,12 @@
 	remote = green
 
 [color.diff]
-	meta = yellow bold
+	meta = yellow
 	frag = magenta bold
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+	commit = yellow bold
 	
 [color.status]
 	added = yellow
@@ -86,3 +87,9 @@
 
 [sequence]
 	editor = interactive-rebase-tool
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
