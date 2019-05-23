@@ -117,7 +117,7 @@ ___prompt_elements_transition_symbol[dir_stats]='\UE0B6'
 ___prompt_elements_transition_inverse[dir_stats]="true"
 ___prompt-dir-stats() {
 	print -n -P "%F{$___prompt_path_stats_fg}%K{$___prompt_path_stats_bg}"
-	print -n " $(ls -A1q | wc -l) "
+	print -n " $(\ls -A1q | wc -l) "
 }
 
 ___prompt_elements[path]='___prompt-path'

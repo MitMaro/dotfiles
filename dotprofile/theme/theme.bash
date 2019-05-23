@@ -40,7 +40,7 @@ ___prompt_setup() {
 	fi
 
 	PS1="${prompt_end}\[$prompt_color\]╭ \$(___check_jobs)\$(___check_git)\$(___node_version)\[$user_color\]\u \[$prompt_color\]\
-\w (\$(ls -1 | wc -l | sed 's: ::g') files)\$(___check_git_branch_info)\
+\w (\$(\ls -1 | wc -l | sed 's: ::g') files)\$(___check_git_branch_info)\
 \[$prompt_color\] \[$prompt_color\]\n\
 ├▪ \[$COLOR_NORMAL\]"
 	
