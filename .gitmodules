@@ -10,3 +10,6 @@
 [submodule "dependencies/multi-monitors-add-on"]
 	path = dependencies/multi-monitors-add-on
 	url = git://github.com/spin83/multi-monitors-add-on.git
+[submodule "dependencies/zsh-autosuggestions"]
+	path = dependencies/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
