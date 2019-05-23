@@ -14,6 +14,7 @@
 	peek = show --name-only
 	pop = stash pop
 	pretty = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+	redate = !sh -c 'GIT_COMMITTER_DATE=\"$(date)\" git commit --amend --no-edit --date \"$(date)\"'
 	st = status --short --branch
 	undo = reset --soft HEAD^
 	w = whatchanged
