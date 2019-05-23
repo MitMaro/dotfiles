@@ -2,20 +2,19 @@
 
 import json
 import sys
-from subprocess import check_output
-from os.path import expanduser
+from subprocess import check_output, call
+from os.path import devnull, expanduser
+
+FNULL = open(devnull, 'w')
+read_cache = {}
 
 def is_number(s):
-    try:
-        int(s)
-        return True
-    except ValueError:
-        return False
+	try:
+		int(s)
+		return True
+	except ValueError:
+		return False
 
-with open(sys.argv[1]) as f:
-	settings = json.load(f)
-
-read_cache = {}
 def read_setting(schema, key, schemadir):
 	cache_key = schema + '.' + key
 	if not cache_key in read_cache:
@@ -27,6 +26,10 @@ def read_setting(schema, key, schemadir):
 	return read_cache[cache_key]
 
 def read_value(value):
+	# empty string arrays start with @as, so remove it
+	if value.startswith("@as "):
+		value = value[4:]
+
 	if value == 'true':
 		return True
 	elif value == 'false':
@@ -64,10 +67,22 @@ def clear_value(schema, key, action):
 	else:
 		print('Invalid clear operation on unknown type:', key)
 
+def verify_writable(schema, key, schemadir):
+	command = ['gsettings']
+	if schemadir:
+		command.extend(['--schemadir', expanduser(schemadir)])
+	command.extend(['writable', schema, key])
+	return call(command, stdout=FNULL) == 0
+
+
 def write_setting(schema, key, schemadir):
 	cache_key = schema + '.' + key
 	if not cache_key in read_cache:
 		return
+	if not verify_writable(schema, key, schemadir):
+		print('Skipping: %s %s is not writable' % (schema, key))
+		return
+
 	value = format_value(read_cache[cache_key])
 	command = ['gsettings']
 	if schemadir:
@@ -97,23 +112,27 @@ def remove_value(schema, key, action):
 		values.remove(action['value'])
 	read_cache[schema + '.' + key] = values
 
-for schema in settings:
-	schemadir = settings[schema].pop('.schemadir', None)
-	for key in settings[schema]:
-		actions = settings[schema][key]
-		if not isinstance(actions, list):
-			actions = [actions]
-		for action in actions:
-			action['schemadir'] = schemadir
-			if action['operation'] == 'set':
-				set_value(schema, key, action)
-			elif action['operation'] == 'add':
-				add_value(schema, key, action)
-			elif action['operation'] == 'remove':
-				remove_value(schema, key, action)
-			elif action['operation'] == 'clear':
-				clear_value(schema, key, action)
-			else:
-				print('Invalid operation:', action['operation'])
-				continue
-		write_setting(schema, key, schemadir)
+if __name__ == '__main__':
+	with open(sys.argv[1]) as f:
+		settings = json.load(f)
+
+	for schema in settings:
+		schemadir = settings[schema].pop('.schemadir', None)
+		for key in settings[schema]:
+			actions = settings[schema][key]
+			if not isinstance(actions, list):
+				actions = [actions]
+			for action in actions:
+				action['schemadir'] = schemadir
+				if action['operation'] == 'set':
+					set_value(schema, key, action)
+				elif action['operation'] == 'add':
+					add_value(schema, key, action)
+				elif action['operation'] == 'remove':
+					remove_value(schema, key, action)
+				elif action['operation'] == 'clear':
+					clear_value(schema, key, action)
+				else:
+					print('Invalid operation:', action['operation'])
+					continue
+			write_setting(schema, key, schemadir)
