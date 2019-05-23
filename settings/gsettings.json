@@ -1,15 +1,16 @@
 {
 	"com.gexperts.Tilix.Settings": {
 		"theme-variant": {"operation": "set", "value": "dark"},
-		"terminal-title-style": {"operation": "set", "value": "small"},
-		"new-window-inherit-state": {"operation": "set", "value": true}
+		"terminal-title-style": {"operation": "set", "value": "small"}
 	},
 	"com.gexperts.Tilix.ProfilesList": {
 		"list": {"operation": "set", "value": ["2b7c4080-0ddd-46c5-8f23-563fd3ba789d"]}
 	},
 	"com.gexperts.Tilix.Profile:/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/": {
 		"allow-bold": {"operation": "set", "value": true},
+		"foreground-color": {"operation": "set", "value": "#FFFFFFFFFFFF"},
 		"background-color": {"operation": "set", "value": "#101010101010"},
+		"background-transparency-percent": {"operation": "set", "value": 5},
 		"cursor-shape": {"operation": "set", "value": "underline"},
 		"dim-transparency-percent": {"operation": "set", "value": 20},
 		"font": {"operation": "set", "value": "DejaVuSansMono Nerd Font Mono 10"},
@@ -37,6 +38,7 @@
 		"scrollback-unlimited": {"operation": "set", "value": true},
 		"show-scrollbar": {"operation": "set", "value": true},
 		"use-system-font": {"operation": "set", "value": false},
+		"use-theme-colors": {"operation": "set", "value": false},
 		"visible-name": {"operation": "set", "value": "Tim's Profile"}
 	},
 	"org.gnome.shell": {
