@@ -48,6 +48,15 @@
 			{"operation": "add", "value": "audio-output-switcher@anduchs"},
 			{"operation": "add", "value": "system76-power@system76.com"},
 			{"operation": "add", "value": "ubuntu-appindicators@ubuntu.com"}
+		],
+		"favorite-apps": [
+			{"operation": "clear"},
+			{"operation": "add", "value": "com.gexperts.Tilix.desktop"},
+			{"operation": "add", "value": "firefox.desktop"},
+			{"operation": "add", "value": "chromium-browser.desktop"},
+			{"operation": "add", "value": "slack.desktop"},
+			{"operation": "add", "value": "wavebox.desktop"},
+			{"operation": "add", "value": "jetbrains-toolbox.desktop"}
 		]
 	},
 	"org.gnome.desktop.calendar": {
