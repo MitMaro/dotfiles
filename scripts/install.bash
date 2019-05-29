@@ -38,7 +38,7 @@ mkdir -p "$__DOTS_DIR/build/.zsh/"
 mkdir -p "$__DOTS_DIR/bin/.bin/"
 
 ln -sfn "$__DOTS_DIR/dependencies/diff-so-fancy/diff-so-fancy" "$__DOTS_DIR/bin/.bin/diff-so-fancy"
-ln -sfn "$__DOTS_DIR/dependencies/gnome-shell-audio-output-switcher" "$__DOTS_DIR/build/.local/share/gnome-shell/extensions/gnome-shell-audio-output-switcher@kgaut"
+ln -sfn "$__DOTS_DIR/dependencies/audio-output-switcher" "$__DOTS_DIR/build/.local/share/gnome-shell/extensions/audio-output-switcher@anduchs"
 ln -sfn "$__DOTS_DIR/dependencies/multi-monitors-add-on/multi-monitors-add-on@spin83" "$__DOTS_DIR/build/.local/share/gnome-shell/extensions/multi-monitors-add-on@spin83"
 ln -sfn "$__DOTS_DIR/dependencies/ide-sync/ide-sync.sh" "$__DOTS_DIR/bin/.bin/ide-sync"
 ln -sfn "$__DOTS_DIR/dependencies/zsh-autosuggestions/" "$__DOTS_DIR/build/.zsh/zsh-autosuggestions"
