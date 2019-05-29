@@ -1,6 +1,6 @@
 
 if type lsd &> /dev/null; then
-	alias ls='lsd -la'
+	alias ls='lsd -l'
 else
-	alias ls='ls -la --color=auto'
+	alias ls='ls -l --color=auto'
 fi
