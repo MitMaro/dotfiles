@@ -1,1 +1,1 @@
-export LESS="-FX"
+export LESS="-FXR"
