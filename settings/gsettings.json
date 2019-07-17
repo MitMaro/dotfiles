@@ -72,6 +72,7 @@
 	},
 	"org.gnome.desktop.interface": {
 		"clock-show-seconds": {"operation": "set", "value": true},
+		"clock-show-weekday": {"operation": "set", "value": true},
 		"gtk-enable-primary-paste": {"operation": "set", "value": false},
 		"gtk-theme": {"operation":  "set", "value":  "Pop-slim"},
 		"show-battery-percentage": {"operation": "set", "value": true}
