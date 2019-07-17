@@ -49,6 +49,7 @@
 			{"operation": "add", "value": "system76-power@system76.com"},
 			{"operation": "add", "value": "ubuntu-appindicators@ubuntu.com"}
 		],
+		"enable-hot-corners": {"operation": "set", "value": false},
 		"favorite-apps": [
 			{"operation": "clear"},
 			{"operation": "add", "value": "com.gexperts.Tilix.desktop"},
