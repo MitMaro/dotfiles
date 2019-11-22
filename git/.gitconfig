@@ -60,6 +60,7 @@
 [branch]
 	autosetupmerge = always
 	autosetuprebase = always
+	sort = -committerdate
 
 [diff]
 	# use path prefix that makes sense in diff (replace a,b -> i,w for example)
