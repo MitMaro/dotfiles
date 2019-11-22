@@ -84,6 +84,9 @@
 		"primary-color": {"operation": "set", "value": "#000000"},
 		"secondary-color": {"operation": "set", "value": "#000000"}
 	},
+	"org.gnome.desktop.wm.preferences": {
+		"button-layout": {"operation": "set", "value": "appmenu:minimize,maximize,close"}
+	},
 	"org.gnome.mutter": {
 		"workspaces-only-on-primary": {"operation": "set", "value": false},
 		"attach-modal-dialogs": {"operation": "set", "value": true}
