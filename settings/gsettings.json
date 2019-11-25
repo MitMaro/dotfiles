@@ -49,7 +49,6 @@
 			{"operation": "add", "value": "system76-power@system76.com"},
 			{"operation": "add", "value": "ubuntu-appindicators@ubuntu.com"}
 		],
-		"enable-hot-corners": {"operation": "set", "value": false},
 		"favorite-apps": [
 			{"operation": "clear"},
 			{"operation": "add", "value": "com.gexperts.Tilix.desktop"},
@@ -73,6 +72,7 @@
 	"org.gnome.desktop.interface": {
 		"clock-show-seconds": {"operation": "set", "value": true},
 		"clock-show-weekday": {"operation": "set", "value": true},
+		"enable-hot-corners": {"operation": "set", "value": false},
 		"gtk-enable-primary-paste": {"operation": "set", "value": false},
 		"gtk-theme": {"operation":  "set", "value":  "Pop-slim"},
 		"show-battery-percentage": {"operation": "set", "value": true}
