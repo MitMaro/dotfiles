@@ -53,7 +53,7 @@
 			{"operation": "clear"},
 			{"operation": "add", "value": "com.gexperts.Tilix.desktop"},
 			{"operation": "add", "value": "firefox.desktop"},
-			{"operation": "add", "value": "chromium-browser.desktop"},
+			{"operation": "add", "value": "chromium.desktop"},
 			{"operation": "add", "value": "slack.desktop"},
 			{"operation": "add", "value": "wavebox.desktop"},
 			{"operation": "add", "value": "jetbrains-toolbox.desktop"}
