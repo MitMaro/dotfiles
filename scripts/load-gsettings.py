@@ -2,8 +2,14 @@
 
 import json
 import sys
+import distro
 from subprocess import check_output, call
 from os.path import devnull, expanduser
+
+distro_info = distro.info()
+distro_info['name'] = distro.name()
+
+print (distro_info)
 
 FNULL = open(devnull, 'w')
 read_cache = {}
@@ -112,6 +118,16 @@ def remove_value(schema, key, action):
 		values.remove(action['value'])
 	read_cache[schema + '.' + key] = values
 
+def check_condition(condition):
+	if 'distro' in condition:
+		if 'version' in condition['distro']:
+			if condition['distro']['version'] != distro_info['version']:
+				return False
+		if 'name' in condition['distro']:
+			if condition['distro']['name'] != distro_info['name']:
+				return False
+	return True
+
 if __name__ == '__main__':
 	with open(sys.argv[1]) as f:
 		settings = json.load(f)
@@ -123,6 +139,12 @@ if __name__ == '__main__':
 			if not isinstance(actions, list):
 				actions = [actions]
 			for action in actions:
+				if 'condition' in action:
+					condition = action['condition']
+					if check_condition(action['condition']):
+						action = action['action']
+					else:
+						continue
 				action['schemadir'] = schemadir
 				if action['operation'] == 'set':
 					set_value(schema, key, action)
