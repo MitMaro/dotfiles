@@ -74,7 +74,12 @@
 		"clock-show-weekday": {"operation": "set", "value": true},
 		"enable-hot-corners": {"operation": "set", "value": false},
 		"gtk-enable-primary-paste": {"operation": "set", "value": false},
-		"gtk-theme": {"operation":  "set", "value":  "Pop-slim"},
+		"gtk-theme": [
+			{
+				"condition": {"distro":  {"name": "Pop!_OS", "version": "19.10"}},
+				"action": {"operation": "set", "value": "Adwaita"}
+			}
+		],
 		"show-battery-percentage": {"operation": "set", "value": true}
 	},
 	"org.gnome.desktop.screensaver": {
