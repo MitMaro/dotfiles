@@ -15,7 +15,14 @@ source "${__DOTS_DIR}/dotprofile/dots.sh"
 
 __load_dots_files() {
 	local subdirectory="$1"
-	for config_file in ${__DOTS_DIR}/${1}/*.{zsh,sh}(.N); do
+	local dots_dir="$__DOTS_DIR"
+	if [[ "$subdirectory" = /* ]]; then
+		# remove leading slash
+		subdirectory="${subdirectory:1}"
+		# no root directory
+		dots_dir=""
+	fi
+	for config_file in ${dots_dir}/${subdirectory}/*.{zsh,sh}(.N); do
 		if [[ -e "${config_file}" ]]; then
 			__DEBUG_MESSAGE "Sourcing: ${config_file}"
 			source "${config_file}"

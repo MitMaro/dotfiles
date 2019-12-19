@@ -58,7 +58,13 @@ __dots_load() {
 	__load_dots_directories "dotprofile/includes" "${os}" "${distro}" "${version}"
 	__load_dots_directories "dotprofile/aliases" "${os}" "${distro}" "${version}"
 	__load_dots_directories "dotprofile/bash_completions.d" "${os}" "${distro}" "${version}"
+
+	if [[ -d "${HOME}/.local/.dot-files" ]]; then
+		__load_dots_files "${HOME}/.local/.dot-files"
+	fi
+
 	__load_dots_files "dotprofile/local"
+
 
 	__DEBUG_MESSAGE "Loading theme"
 	__load_dots_directories "dotprofile/theme" "${os}" "${distro}" "${version}"
