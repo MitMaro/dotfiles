@@ -1,6 +1,6 @@
 # Dot Profile
 
-![Screenshot of my shell prompt](http://i.imgur.com/dWCG7Xbl.png)
+![Screenshot of my prompt](docs/dot-files.png)
 
 # Warning
 
@@ -38,6 +38,17 @@ need to manually delete those files first.
 
 1. `cd <cloned-directory>`
 1. `./scripts/uninstall.bash`
+
+
+## Configuration
+
+### Debug Mode
+
+Setting `__DOTS_DEBUG=true` in `config.sh` will enable debug output.
+
+### Local Files
+
+Any shell file located in `~/.local/.dot-files` will be loaded after all other files have been loaded.
 
 ## Inspiration
 
