@@ -197,12 +197,12 @@ ___prompt-git-info() {
 	local branch_status
 	local tmp
 
+	git rev-parse --is-inside-work-tree > /dev/null 2>&1 || return 0
+
 	# info does not work on bare repos
 	if [[ "$(git rev-parse --is-bare-repository)" == "true" ]]; then
 		return 1;
 	fi
-
-	git rev-parse --is-inside-work-tree > /dev/null 2>&1 || return 0
 
 	print -n -P "%K{$___prompt_git_bg}%F{$___prompt_git_fg}"
 
