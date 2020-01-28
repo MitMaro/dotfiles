@@ -197,13 +197,18 @@ ___prompt-git-info() {
 	local branch_status
 	local tmp
 
+	# info does not work on bare repos
+	if [[ "$(git rev-parse --is-bare-repository)" == "true" ]]; then
+		return 1;
+	fi
+
 	git rev-parse --is-inside-work-tree > /dev/null 2>&1 || return 0
 
 	print -n -P "%K{$___prompt_git_bg}%F{$___prompt_git_fg}"
 
 	base_dir=$(git rev-parse --show-cdup 2>/dev/null) || return 1
 	modified_count=`git status --porcelain -uno | wc -l`
-	if [[ "$modified_count" > "0" ]]; then
+	if [[ "$modified_count" -gt "0" ]]; then
 		print -n -P "%F{$___prompt_git_modified_fg}"
 	fi
 	__git_ps1 " %s "
