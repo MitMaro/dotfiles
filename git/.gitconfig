@@ -65,6 +65,7 @@
 [diff]
 	# use path prefix that makes sense in diff (replace a,b -> i,w for example)
 	mnemonicprefix = true
+	renames = copies
 
 [fetch]
 	# auto prune on fetch
