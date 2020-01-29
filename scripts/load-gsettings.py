@@ -9,8 +9,6 @@ from os.path import devnull, expanduser
 distro_info = distro.info()
 distro_info['name'] = distro.name()
 
-print (distro_info)
-
 FNULL = open(devnull, 'w')
 read_cache = {}
 

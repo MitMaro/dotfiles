@@ -7,6 +7,11 @@ if ! command -v "stow" > /dev/null; then
 	exit 1
 fi
 
+if ! command -v "pipenv" > /dev/null; then
+	>&2 echo "Command pipenv not found, aborting"
+	exit 1
+fi
+
 export __DOTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../" && pwd )"
 
 git submodule update --init --remote
@@ -43,7 +48,7 @@ ln -sfn "$__DOTS_DIR/dependencies/multi-monitors-add-on/multi-monitors-add-on@sp
 ln -sfn "$__DOTS_DIR/dependencies/ide-sync/ide-sync.sh" "$__DOTS_DIR/bin/.bin/ide-sync"
 ln -sfn "$__DOTS_DIR/dependencies/zsh-autosuggestions/" "$__DOTS_DIR/build/.zsh/zsh-autosuggestions"
 
-curl -o "$__DOTS_DIR/build/.local/share/git/git-prompt.sh" "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
+curl --silent -o "$__DOTS_DIR/build/.local/share/git/git-prompt.sh" "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
 
 stow ${stow_args} build
 stow ${stow_args} bin
@@ -54,6 +59,8 @@ stow ${stow_args} shell
 touch "$HOME/.gitconfig_local"
 
 echo "Loading gsettings"
+pipenv install  &> /dev/null
+pipenv shell &> /dev/null
 "$__DOTS_DIR/scripts/load-gsettings.py" "$__DOTS_DIR/settings/gsettings.json"
 
 if [[ "$SHELL" != "/bin/zsh" ]]; then
