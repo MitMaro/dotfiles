@@ -54,16 +54,18 @@ __dots_load() {
 		__DEBUG_MESSAGE "Unsupported operating system: ${os}";
 	fi
 
+	if [[ -d "${HOME}/.local/.dot-files" ]]; then
+		__load_dots_files "${HOME}/.local/.dot-files/post-load"
+	fi
+
 	__load_dots_directories "dotprofile/lib" "${os}" "${distro}" "${version}"
 	__load_dots_directories "dotprofile/includes" "${os}" "${distro}" "${version}"
 	__load_dots_directories "dotprofile/aliases" "${os}" "${distro}" "${version}"
 	__load_dots_directories "dotprofile/bash_completions.d" "${os}" "${distro}" "${version}"
 
 	if [[ -d "${HOME}/.local/.dot-files" ]]; then
-		__load_dots_files "${HOME}/.local/.dot-files"
+		__load_dots_files "${HOME}/.local/.dot-files/post-load"
 	fi
-
-	__load_dots_files "dotprofile/local"
 
 
 	__DEBUG_MESSAGE "Loading theme"
