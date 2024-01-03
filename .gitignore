@@ -1,6 +1,7 @@
 # ignored generated symlinks
 /bin/.bin/
 /build/
+/dependencies/
 /shell/.bash_profile
 /shell/.zshrc
 /config.sh
