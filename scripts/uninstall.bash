@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+>&2 echo "Uninstalling needs an update before running"
+exit 1
+
 if ! command -v "stow" > /dev/null; then
 	>&2 echo "Command stow not found, aborting"
 	exit 1
