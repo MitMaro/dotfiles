@@ -4,7 +4,7 @@
 exec < /dev/tty
 
 # strip comments
-sed -i 's/^#.*//' "$1"
+sed 's/^#.*//' "$1" && rm "$1.bak"
 
 # check commit message
 aspell check "$1"
