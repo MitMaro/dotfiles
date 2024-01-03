@@ -21,6 +21,7 @@ ___prompt_user_fg="255"
 ___prompt_user_bg="033"
 ___prompt_node_fg="077"
 ___prompt_rust_fg="166"
+___prompt_go_fg="031"
 ___prompt_project_bg="238"
 ___prompt_project_fg="248"
 ___prompt_path_fg="255"
@@ -97,7 +98,7 @@ ___prompt-directory-marker() {
 	if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1 ; then
 		print -n "\UE725" # git symbol
 	else
-		print -n "\UFD24"
+		print -n "\UF0826"
 	fi
 }
 
@@ -139,6 +140,7 @@ ___prompt-project-info() {
 	local has_info=0
 	local has_node=0
 	local has_rust=0
+	local has_go=0
 	local has_previous=0
 
 	if get-project-root node &> /dev/null; then
@@ -149,6 +151,11 @@ ___prompt-project-info() {
 	if get-project-root rust &> /dev/null; then
 		has_info=1
 		has_rust=1
+	fi
+
+	if get-project-root go &> /dev/null; then
+		has_info=1
+		has_go=1
 	fi
 
 	if [[ "$has_info" == "0" ]]; then
@@ -177,6 +184,19 @@ ___prompt-project-info() {
 			print -n -P "%F{$___prompt_rust_fg}"
 			print -n "$rust_version"
 			print -n "\UE7A8";
+		fi
+	fi
+
+	if [[ "$has_go" == "1" ]]; then
+	go_version="$(go version | awk '{print(substr($3, 3))}' 2>/dev/null)"
+		if [[ "$?" == "0" ]]; then
+			if [[ "$has_previous" == "1" ]]; then
+				___prompt-separator $___prompt_project_fg $___prompt_project_bg '\UE0BB'
+			fi
+			has_previous=1
+			print -n -P "%F{$___prompt_go_fg}"
+			print -n "$go_version"
+			print -n "\UE626";
 		fi
 	fi
 

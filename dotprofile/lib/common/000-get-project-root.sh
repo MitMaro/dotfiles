@@ -5,6 +5,8 @@ function get-project-root() {
 			project_file='package.json' ;;
 		'rust')
 			project_file='Cargo.toml' ;;
+		'go')
+			project_file='go.mod' ;;
 		*)
 			return 1 ;;
 	esac
