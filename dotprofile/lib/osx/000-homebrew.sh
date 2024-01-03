@@ -1,1 +1,2 @@
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+[ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
