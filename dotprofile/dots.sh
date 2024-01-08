@@ -54,8 +54,8 @@ __dots_load() {
 		__DEBUG_MESSAGE "Unsupported operating system: ${os}";
 	fi
 
-	if [[ -d "${HOME}/.local/.dot-files" ]]; then
-		__load_dots_files "${HOME}/.local/.dot-files/post-load"
+	if [[ -d "${HOME}/.local/.dot-files/pre-load" ]]; then
+		__load_dots_files "${HOME}/.local/.dot-files/pre-load"
 	fi
 
 	__load_dots_directories "dotprofile/lib" "${os}" "${distro}" "${version}"
@@ -63,7 +63,7 @@ __dots_load() {
 	__load_dots_directories "dotprofile/aliases" "${os}" "${distro}" "${version}"
 	__load_dots_directories "dotprofile/bash_completions.d" "${os}" "${distro}" "${version}"
 
-	if [[ -d "${HOME}/.local/.dot-files" ]]; then
+	if [[ -d "${HOME}/.local/.dot-files/post-load" ]]; then
 		__load_dots_files "${HOME}/.local/.dot-files/post-load"
 	fi
 
