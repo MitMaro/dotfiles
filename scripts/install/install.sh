@@ -7,6 +7,7 @@ if ( ${__DOTS_STOW_DRY_RUN} ); then
 	stow_args="$stow_args --simulate"
 fi
 
+# TODO this breaks .local, since it creates a symlink over .local, instead of .local/*
 stow ${stow_args} build
 stow ${stow_args} bin
 stow ${stow_args} git
