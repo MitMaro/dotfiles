@@ -4,6 +4,8 @@
 # reset a few things
 export PROMPT_COMMAND=""
 export PATH="$(getconf PATH)"
+export MANPATH=""
+export INFOPATH=""
 
 [[ -e "${__DOTS_DIR}/config.sh" ]] && source "${__DOTS_DIR}/config.sh"
 source "${__DOTS_DIR}/dotprofile/lib/debug-log.sh"
