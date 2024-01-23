@@ -30,6 +30,9 @@ __load_dots_files() {
 	done
 }
 
+# since EDITOR=vim on reload, this forces line editor to be in emacs mode
+bindkey -e
+
 # Workaround for https://github.com/robbyrussell/oh-my-zsh/issues/1433
 DEBIAN_PREVENT_KEYBOARD_CHANGES=yes
 bindkey '^[[A' up-line-or-search
@@ -37,8 +40,5 @@ bindkey '^[[B' down-line-or-search
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 bindkey '^[[3~' delete-char
-
-# since EDITOR=vim on reload, this forces line editor to be in emacs mode
-bindkey -e
 
 __dots_load 'zsh'
