@@ -38,4 +38,7 @@ bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 bindkey '^[[3~' delete-char
 
+# since EDITOR=vim on reload, this forces line editor to be in emacs mode
+bindkey -e
+
 __dots_load 'zsh'
