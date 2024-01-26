@@ -5,8 +5,7 @@ exec < /dev/tty
 
 # strip comments
 (sed 's/^#.*//' "$1" > "$1.tmp") \
-	&& mv "$1.tmp" "$1"\
-	&& rm "$1.bak"
+	&& mv "$1.tmp" "$1"
 
 # check commit message
 aspell check "$1"

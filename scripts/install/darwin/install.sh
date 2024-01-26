@@ -11,6 +11,7 @@ cask "font-dejavu-sans-mono-nerd-font"
 cask "font-iosevka-term-nerd-font"
 brew "git-interactive-rebase-tool"
 brew "aspell"
+brew "tree"
 EOS
 
 # close any system preference windows first

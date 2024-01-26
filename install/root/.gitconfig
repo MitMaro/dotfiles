@@ -21,14 +21,16 @@
 	wip = commit --no-verify -m "WIP"
 
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
 	whitespace=trailing-space,cr-at-eol,tabwidth=4
-	excludesfile = ~/.global_gitignore
+
+	pager = ~/.local/bin/diff-so-fancy/diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = ~/.config/dot-files/git/.user_gitignore
+	attributesFile = ~/.config/dot-files/git/.user_gitattributes
+	hooksPath = ~/.config/dot-files/git/.git-hooks/
 
 	# enable parallel I/O for operations like "git diff"
 	# see http://stackoverflow.com/q/18257622/276478
 	preloadindex = true
-	hooksPath = ~/.git-hooks/
 	editor = vim
 
 [color]
@@ -74,6 +76,11 @@
 [merge]
 	# show diff after merge
 	stat = true
+
+[mergetool "gomod"]
+	name = "Go Mod Merge Driver"
+	cmd = ~/.config/dot-files/git/.git-merge-tools/gomod.sh "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+	trustExitCode = true
 
 [pull]
 	rebase = true

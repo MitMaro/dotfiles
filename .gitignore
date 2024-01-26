@@ -1,8 +1,4 @@
 # ignored generated symlinks
-/bin/.bin/
-/build/
-/dependencies/
-/shell/.bash_profile
-/shell/.zshrc
+/install/build
 /config.sh
 /venv/
