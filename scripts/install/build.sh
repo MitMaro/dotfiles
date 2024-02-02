@@ -4,6 +4,7 @@ rm -rf "$__DOTS_DIR/install/build/"
 mkdir -p "$__DOTS_DIR/install/build/"
 
 clone-and-update-repo 'https://github.com/zsh-users/zsh-autosuggestions.git' develop install/build/.zsh/zsh-autosuggestions
+# TODO remove if delta is better
 clone-and-update-repo 'https://github.com/so-fancy/diff-so-fancy' master install/build/.local/bin/diff-so-fancy
 clone-and-update-repo 'https://github.com/tpope/vim-sensible.git' master install/build/.vim/pack/start/vim-sensible
 
@@ -15,4 +16,3 @@ EOF
 
 mkdir -p "$__DOTS_DIR/install/build/.local/share/git/"
 curl --silent -o "$__DOTS_DIR/install/build/.local/share/git/git-prompt.sh" "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
-ln -s

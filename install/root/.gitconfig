@@ -23,7 +23,7 @@
 [core]
 	whitespace=trailing-space,cr-at-eol,tabwidth=4
 
-	pager = ~/.local/bin/diff-so-fancy/diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
 	excludesfile = ~/.config/dot-files/git/.user_gitignore
 	attributesFile = ~/.config/dot-files/git/.user_gitattributes
 	hooksPath = ~/.config/dot-files/git/.git-hooks/
@@ -32,6 +32,9 @@
 	# see http://stackoverflow.com/q/18257622/276478
 	preloadindex = true
 	editor = vim
+
+[interactive]
+	diffFilter = delta --color-only
 
 [color]
 	branch = auto
@@ -53,7 +56,13 @@
 	new = green bold
 	whitespace = red reverse
 	commit = yellow bold
-	
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
 [color.status]
 	added = yellow
 	changed = green
@@ -68,6 +77,7 @@
 	# use path prefix that makes sense in diff (replace a,b -> i,w for example)
 	mnemonicprefix = true
 	renames = copies
+	colorMoved = default
 
 [fetch]
 	# auto prune on fetch
@@ -76,10 +86,16 @@
 [merge]
 	# show diff after merge
 	stat = true
+	conflictstyle = diff3
+	tool = "custom"
 
-[mergetool "gomod"]
-	name = "Go Mod Merge Driver"
-	cmd = ~/.config/dot-files/git/.git-merge-tools/gomod.sh "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+[mergetool]
+	keepBackup = false
+	writeToTemp = true # stops Git from adding BASE, LOCAL, and REMOTE to the repo
+
+[mergetool "custom"]
+	name = "Merge Driver that detect file types"
+	cmd = ~/.config/dot-files/git/.git-merge-tools/mergetool.sh "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
 	trustExitCode = true
 
 [pull]
@@ -90,7 +106,7 @@
 	default = nothing
 
 [rerere]
-	enabled = true
+	enabled = false
 
 [user]
 	useConfigOnly = true
@@ -98,8 +114,5 @@
 [sequence]
 	editor = interactive-rebase-tool
 
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+[delta]
+	navigate = true    # use n and N to move between diff sections

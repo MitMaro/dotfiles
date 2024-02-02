@@ -12,6 +12,7 @@ cask "font-iosevka-term-nerd-font"
 brew "git-interactive-rebase-tool"
 brew "aspell"
 brew "tree"
+brew "git-delta"
 EOS
 
 # close any system preference windows first
