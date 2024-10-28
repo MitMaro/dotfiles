@@ -3,11 +3,15 @@
 import json
 import sys
 import distro
+import socket
 from subprocess import check_output, call
 from os.path import devnull, expanduser
+from pathlib import Path
 
 distro_info = distro.info()
 distro_info['name'] = distro.name()
+
+hostname = socket.gethostname()
 
 FNULL = open(devnull, 'w')
 read_cache = {}
@@ -126,11 +130,17 @@ def check_condition(condition):
 				return False
 	return True
 
-if __name__ == '__main__':
-	with open(sys.argv[1]) as f:
+def process_file(setting_path):
+	with open(setting_path) as f:
 		settings = json.load(f)
 
-	for schema in settings:
+	if 'target' in settings:
+		target = settings['target']
+		if 'hostname' in target and target['hostname'] != hostname:
+			print("Hostname does not match, skipping")
+			return
+
+	for schema in settings['schemas']:
 		schemadir = settings[schema].pop('.schemadir', None)
 		for key in settings[schema]:
 			actions = settings[schema][key]
@@ -156,3 +166,9 @@ if __name__ == '__main__':
 					print('Invalid operation:', action['operation'])
 					continue
 			write_setting(schema, key, schemadir)
+
+if __name__ == '__main__':
+	pathlist = Path(sys.argv[1]).glob('**/*.json')
+	for path in pathlist:
+		print('Processing ' + str(path))
+		process_file(path)

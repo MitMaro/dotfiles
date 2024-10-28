@@ -1,4 +1,4 @@
 # ignored generated symlinks
 /install/build
 /config.sh
-/venv/
+/.venv/

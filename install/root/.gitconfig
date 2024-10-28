@@ -76,7 +76,8 @@
 [diff]
 	# use path prefix that makes sense in diff (replace a,b -> i,w for example)
 	mnemonicprefix = true
-	renames = copies
+	renames = true
+	context = 1
 	colorMoved = default
 
 [fetch]
@@ -110,9 +111,30 @@
 
 [user]
 	useConfigOnly = true
+	name = Tim Oram
+	email = dev@mitmaro.ca
 
 [sequence]
-	editor = interactive-rebase-tool
+	editor = /home/mitmaro/code/active/git-interactive-tool/target/debug/interactive-rebase-tool
 
 [delta]
 	navigate = true    # use n and N to move between diff sections
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[rebase]
+	autosquash = true
+	updateRefs = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[init]
+	defaultBranch = main

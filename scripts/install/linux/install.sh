@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
 echo "Loading gsettings"
-pipenv install  &> /dev/null
-pipenv shell &> /dev/null
-"$__DOTS_DIR/scripts/load-gsettings.py" "$__DOTS_DIR/settings/gsettings.json"
+python3 -m venv "${__DOTS_DIR}/.venv"
+pip3 install -r "${__DOTS_DIR}/requirements.txt"
+source "${__DOTS_DIR}/.venv/bin/activate"
+"$__DOTS_DIR/scripts/load-gsettings.py" "$__DOTS_DIR/settings/"
+deactivate
+
+sudo --validate
+curl --silent -L -o "$__DOTS_INSTALL_TMP/git-delta.deb" "https://github.com/dandavison/delta/releases/download/0.18.2/git-delta_0.18.2_amd64.deb"
+DEBIAN_FRONTEND="noninteractive" sudo --non-interactive dpkg -i "$__DOTS_INSTALL_TMP/git-delta.deb"
 
 if [[ "$SHELL" != "/bin/zsh" ]]; then
 	echo "Updating shell to zsh"
