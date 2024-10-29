@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+echo "Installation requires root access with sudo"
+sudo --validate
+
 export __DOTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../" && pwd )"
 
 source "${__DOTS_DIR}/scripts/install/common.sh"

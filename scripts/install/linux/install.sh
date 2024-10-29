@@ -7,11 +7,10 @@ source "${__DOTS_DIR}/.venv/bin/activate"
 "$__DOTS_DIR/scripts/load-gsettings.py" "$__DOTS_DIR/settings/"
 deactivate
 
-sudo --validate
-curl --silent -L -o "$__DOTS_INSTALL_TMP/git-delta.deb" "https://github.com/dandavison/delta/releases/download/0.18.2/git-delta_0.18.2_amd64.deb"
-DEBIAN_FRONTEND="noninteractive" sudo --non-interactive dpkg -i "$__DOTS_INSTALL_TMP/git-delta.deb"
+download-with-cache "git-delta.deb" "https://github.com/dandavison/delta/releases/download/0.18.2/git-delta_0.18.2_amd64.deb"
+DEBIAN_FRONTEND="noninteractive" sudo --non-interactive dpkg -i "$(cached-path "git-delta.deb")"
 
-install-packages zsh vim tilix
+install-packages zsh vim
 
 if [[ "$SHELL" != "/bin/zsh" ]]; then
 	echo "Updating shell to zsh"

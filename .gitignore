@@ -1,5 +1,4 @@
-# ignored generated symlinks
-/install/build
-/config.sh
 /.venv/
-.dots-tmp/
+/.dots-tmp/
+/build/
+/config.sh

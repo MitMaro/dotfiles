@@ -1,1 +1,2 @@
-fc-cache -f -v
+fc-cache -f -v > /dev/null
+
