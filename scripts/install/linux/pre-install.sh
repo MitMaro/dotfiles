@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-install-packages git stow
+install-packages git stow python3.10-venv

@@ -2,3 +2,4 @@
 /install/build
 /config.sh
 /.venv/
+.dots-tmp/

@@ -9,7 +9,7 @@ verify-command() {
 install-packages() {
 	while (($#)); do
 			if ! dpkg-query -s "$1" &> /dev/null; then
-					apt install -y "$1"
+					sudo apt install -y "$1"
 			fi
 			shift
 	done

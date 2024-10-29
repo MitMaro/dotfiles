@@ -25,6 +25,4 @@ source "${__DOTS_DIR}/scripts/install/$os/install.sh"
 source "${__DOTS_DIR}/scripts/install/post-install.sh"
 source "${__DOTS_DIR}/scripts/install/$os/post-install.sh"
 
-rm -rf "${__DOTS_INSTALL_TMP}"
-
 echo "Install complete"
