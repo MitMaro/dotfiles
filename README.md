@@ -15,7 +15,7 @@ code, and remove things you don’t want or need. Don’t blindly use my setting
 
 ## Installation
 
-**Warning**
+**Note**
 
 ----
 
@@ -24,7 +24,6 @@ need to manually delete those files first.
 
 ----
 
-1. Install [GNU Stow][stow]
 1. Clone the repo to a stable location
 1. `cd <cloned-directory>`
 1. `./scripts/install.bash`
@@ -33,12 +32,6 @@ need to manually delete those files first.
 
 1. `git pull` to get newest changes
 1. `./scripts/install.bash` to link any new files
-
-## Uninstall
-
-1. `cd <cloned-directory>`
-1. `./scripts/uninstall.bash`
-
 
 ## Configuration
 

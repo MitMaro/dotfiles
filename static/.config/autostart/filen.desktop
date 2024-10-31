@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Filen
+GenericName=Filen
+Comment=Filen Desktop
+TryExec=<HOME>/.local/bin/filen_x86_64.AppImage
+StartupNotify=true
+Exec=<HOME>/.local/bin/filen_x86_64.AppImage
+Icon=<HOME>/share/icons/filen.svg
+Categories=System;Utility;

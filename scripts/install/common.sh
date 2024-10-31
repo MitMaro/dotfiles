@@ -8,11 +8,30 @@ verify-command() {
 
 install-packages() {
 	while (($#)); do
-			if ! dpkg-query -s "$1" &> /dev/null; then
-					sudo apt install -y "$1"
-			fi
-			shift
+		if ! dpkg-query -s "$1" &> /dev/null; then
+				sudo apt install -y "$1"
+		fi
+		shift
 	done
+}
+
+install-flatpak() {
+	local remote="$1"
+	shift
+	while (($#)); do
+		flatpak install -y --noninteractive "$remote" "$1"
+		shift
+	done
+}
+
+install-deb() {
+	local name="$1"
+	local url="$2"
+
+	if ! dpkg-query -s "$1" &> /dev/null; then
+		download-with-cache "$name.deb" "$url"
+		DEBIAN_FRONTEND="noninteractive" sudo --non-interactive dpkg -i "$(cached-path "$name.deb")"
+	fi
 }
 
 clone-and-update-repo() {
@@ -59,4 +78,20 @@ copy-cached() {
 
 	mkdir -p "$destination"
   cp -r "$(cached-path "$name")" "$destination"
+}
+
+
+source-directory() {
+	local subdirectory="$1"
+
+	for f in "${__DOTS_DIR}/${subdirectory}/"*.{zsh,sh}; do
+		if [[ -e "${f}" ]]; then
+			source "${f}"
+		fi
+	done
+}
+
+template-replace() {
+	local file="$1"
+	sed -i "s|<HOME>|$HOME|g" "$file"
 }

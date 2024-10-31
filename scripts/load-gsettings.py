@@ -16,7 +16,14 @@ hostname = socket.gethostname()
 FNULL = open(devnull, 'w')
 read_cache = {}
 
-def is_number(s):
+def is_float(s):
+	try:
+		float(s)
+		return True
+	except ValueError:
+		return False
+
+def is_int(s):
 	try:
 		int(s)
 		return True
@@ -46,7 +53,9 @@ def read_value(value):
 		return [read_value(v) for v in value[1:-1].split(', ')]
 	elif value.startswith("'"):
 		return value[1:-1].replace("\\'", "'")
-	elif is_number(value):
+	elif is_float(value):
+		return float(value)
+	elif is_int(value):
 		return int(value)
 	return value
 
@@ -55,7 +64,7 @@ def format_value(value):
 		return "'" + value.replace("'", "\\'") + "'"
 	if isinstance(value, bool):
 		return 'true' if value else 'false'
-	if isinstance(value, int):
+	if isinstance(value, (int, float)):
 		return str(value)
 	if isinstance(value, list):
 		return '[' + ', '.join([str(format_value(v)) for v in value]) + ']'
@@ -140,10 +149,11 @@ def process_file(setting_path):
 			print("Hostname does not match, skipping")
 			return
 
-	for schema in settings['schemas']:
-		schemadir = settings[schema].pop('.schemadir', None)
-		for key in settings[schema]:
-			actions = settings[schema][key]
+	schemas = settings['schemas']
+	for schema in schemas:
+		schemadir = schemas[schema].pop('.schemadir', None)
+		for key in schemas[schema]:
+			actions = schemas[schema][key]
 			if not isinstance(actions, list):
 				actions = [actions]
 			for action in actions:

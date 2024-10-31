@@ -1,0 +1,53 @@
+{
+	"target": {
+		"hostname": "mm-oryx12"
+	},
+	"schemas": {
+		"org.gnome.desktop.peripherals.touchpad": {
+			"speed": {"operation":  "set", "value": 0.25}
+		},
+		"org.gnome.desktop.interface": {
+			"color-scheme": {"operation":  "set", "value": "prefer-light"},
+			"gtk-theme": {"operation":  "set", "value": "Pop"},
+			"clock-format": {"operation":  "set", "value": "24h"},
+			"show-battery-percentage": {"operation":  "set", "value": true}
+		},
+		"org.gnome.desktop.background": {
+			"color-shading-type": {"operation":  "set", "value": "solid"},
+			"picture-options": {"operation":  "set", "value": "zoom"},
+			"picture-uri": {"operation":  "set", "value": "file:///usr/share/backgrounds/pop/galen-crout-175291.jpg"},
+			"primary-color": {"operation":  "set", "value": "#000000"},
+			"secondary-color": {"operation":  "set", "value": "#000000"}
+		},
+		"org.gnome.desktop.wm.preferences": {
+			"button-layout": {"operation":  "set", "value": "appmenu:minimize,maximize,close"}
+		},
+		"org.gnome.desktop.session": {
+			"idle-delay": {"operation":  "set", "value": 600}
+		},
+		"org.gnome.desktop.media-handling": {
+			"autorun-never": {"operation":  "set", "value": true}
+		},
+		"org.gnome.gedit.preferences.editor": {
+			"scheme": {"operation":  "set", "value": "pop-light"}
+		},
+		"org.gnome.shell.extensions.dash-to-dock": {
+			"manualhide": {"operation":  "set", "value": true}
+		},
+		"org.gnome.shell.extensions.pop-cosmic": {
+			"overlay-key-action": {"operation":  "set", "value": "WORKSPACES"},
+			"clock-alignment": {"operation":  "set", "value": "RIGHT"},
+			"show-applications-button": {"operation":  "set", "value": true},
+			"show-workspaces-button": {"operation":  "set", "value": false}
+		},
+		"org.gnome.settings-daemon.plugins.power": {
+			"idle-dim": {"operation":  "set", "value": true},
+			"power-saver-profile-on-low-battery": {"operation":  "set", "value": false},
+			"power-button-action": {"operation":  "set", "value": "nothing"}
+		},
+		"com.system76.hidpi": {
+			"enable": {"operation":  "set", "value": false},
+			"mode": {"operation":  "set", "value": "lodpi"}
+		}
+	}
+}

@@ -1,6 +1,6 @@
 {
 	"target": {
-		"hostname": "mm-oryx5x"
+		"hostname": "mm-oryx5"
 	},
 	"#schemas": {
 		"com.gexperts.Tilix.Settings": {
