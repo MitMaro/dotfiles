@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=bambu-studio
+GenericName=Bambu Studio
+Comment=An open-source, cutting-edge, feature-rich slicing software.
+TryExec=<HOME>/.local/bin/BambuStudio.AppImage
+StartupNotify=true
+Exec=<HOME>/.local/bin/BambuStudio.AppImage
+Icon=<HOME>/.local/share/icons/bambu-studio.png
+Categories=Utility;

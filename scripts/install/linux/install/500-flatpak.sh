@@ -1,1 +1,3 @@
-install-flatpak flathub com.adamcake.Bolt
+install-flatpak flathub\
+	com.adamcake.Bolt\
+	com.valvesoftware.Steam

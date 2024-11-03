@@ -95,3 +95,33 @@ template-replace() {
 	local file="$1"
 	sed -i "s|<HOME>|$HOME|g" "$file"
 }
+
+install-gpg-key-from-asc() {
+	local name="$1"
+	local url="$2"
+	local keyring_path="/usr/share/keyrings/$name-keyring.gpg"
+
+	if [[ ! -f "$keyring_path" ]]; then
+		download-with-cache "$name.asc" "$url"
+		sudo gpg --dearmor --output "$keyring_path" < "$(cached-path "$name.asc")"
+	fi
+}
+
+install-gpg-key() {
+	local name="$1"
+	local url="$2"
+	local keyring_path="/usr/share/keyrings/$name-keyring.gpg"
+
+	if [[ ! -f "$keyring_path" ]]; then
+		download-with-cache "$name.gpg" "$url"
+		sudo cp "$(cached-path "$name.gpg")" "$keyring_path"
+	fi
+}
+
+install-apt-source() {
+	local name="$1"
+	local src="$2"
+
+	echo "$src" | sudo tee "/etc/apt/sources.list.d/$name.list"
+}
+

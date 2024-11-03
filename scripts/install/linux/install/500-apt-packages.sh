@@ -1,1 +1,5 @@
-install-packages zsh vim
+install-packages\
+	zsh\
+	vim\
+	1password\
+	gparted
