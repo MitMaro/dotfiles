@@ -125,3 +125,15 @@ install-apt-source() {
 	echo "$src" | sudo tee "/etc/apt/sources.list.d/$name.list"
 }
 
+install-ssh-key() {
+	local reference="op://Keys/$1"
+	local name="$1"
+	local destination="${__DOTS_DIR}/build/.ssh/$name"
+
+	# allow this to fail if the file does not exist
+	if ! op read "$reference/private key" --force --out-file="$destination" &>/dev/null; then
+		>&2 echo "No key with name '$name' found, skipping"
+		return
+	fi
+	op read "$reference/public key" --force --out-file="$destination.pub" &>/dev/null
+}
